@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title>Search</title>
+    <style>
+        h1{
+            background-color: #001021;
+            font-family: Georgia, 'Times New Roman', Times, serif   ;
+            color:white;
+            margin:0;
+            padding: 20px;
+            font-size:27px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            height: 100vh;
+            background-color:#001021; /* Set a background color */
+        }
+        
+        table {
+            justify-content: center;
+            width: 80%;
+            margin-top: 40px; /* Adjust as needed */
+            margin-bottom: 20px; /* Adjust as needed */
+            margin-left: 9%;
+            box-shadow: 0 0 10px #000004;; /* Add a subtle shadow */
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        th,td {
+            background-color:#000004;
+            color: #fff;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Alternate row color */
+        }
+        
+        a {
+            text-decoration: none;
+            color: #007bff; /* Link color */
+            font-weight: bold;
+        }
+        
+        a:hover {
+            color: #0056b3; /* Link color on hover */
+        }
+
+        h2{
+            text-align:center;
+            background-color: #0C6291;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color:white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    {%if results==resultsal==resultsgen==resultscrt==[]%}
+    <h1> No results Matched for "{{data}}"</h1>
+    {%else%}
+    <h1> Results that matched your search </h1>
+    {%endif%}
+    {%if results!=[] %}
+    <h2>Songs</h2>
+    <table border="2">
+    <tr>
+        <th>No.</th>
+        <th>Songname</th>
+        <th>Singer</th>
+        <th>Genre</th>
+        <th>Play</th>
+    </tr>
+    {%for i in results%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i.s_name}}</td>
+        <td>{{i.s_singer}}</td>
+        <td>{{i.s_genre}}</td>
+        <td><a href="/play/{{i.s_id}}">Play</a></td>
+    </tr>
+    {%endfor%}
+    </table>
+    <br>
+    {%endif%}
+    {%if resultsal!=[] %}
+    <h2>Albums</h2>
+    <table border="2">
+        <tr>
+            <th> No. </th>
+            <th> Album name </th>
+        </tr>
+    {%for i in resultsal%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td><a href="/Suserviewalb/{{i.album_id}}">{{i.album_name}}</a></td>
+    </tr>
+    {%endfor%}
+    </table>
+    <br>
+    {%endif%}
+    {%if resultsgen!=[] %}
+    <h2>Genres</h2>
+    <table border="2">
+        <tr>
+            <th> No. </th>
+            <th> Genre name </th>
+        </tr>
+    {%for i in resultsgen%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td><a href="/genresongs/{{i.s_genre}}">{{i.s_genre}}</a></td>
+    </tr>
+    {%endfor%}
+    </table>
+    <br>
+    {%endif%}
+    {%if resultscrt!=[]%}
+    <h2>Creators</h2>
+    <table border="2">
+        <tr>
+            <th> No. </th>
+            <th> Singer name  </th>
+            <th> View albums </th>
+            <th> View Songs </th>
+        </tr>
+    {%for i in resultscrt%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i.firstname}}</td>
+        <td><a href="/seesearchalbum/{{i.uid}}"> Albums </a></td>
+        <td><a href="/seesearchsong/{{i.uid}}"> Songs </a></td>
+    </tr>
+    {%endfor%}
+    </table>
+    <br>
+    {%endif%}
+
+
+</body>
+</html>

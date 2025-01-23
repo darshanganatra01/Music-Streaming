@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title>Edit Playlist</title>
+    <style>
+        body {
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color:#0C6291;
+        }
+
+        .flash {
+            animation: fadeOut 4s forwards;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            text-align: center;
+            margin-top: 120px;
+            font-size: 25px;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* Styling the container without fieldset */
+        .container {
+            border: 2px solid #001F3F; /* Oxford Blue */
+            border-radius: 15px;
+            margin-bottom: 20px;
+            width: 350px;
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            width:450px;
+            margin: auto;
+            margin-top: 175px;
+        }
+
+        h1 {
+            margin-top: 15px; /* Adjusted margin */
+            margin-bottom: 60px; /* Adjusted margin */
+            color: #001F3F; /* Oxford Blue */
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #001F3F; /* Oxford Blue */
+        }
+
+        
+        .txt{
+            font-size: 22px;
+            margin-top: -8px ;
+        }
+
+        button {
+            background-color: #444554; /* Oxford Blue */
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 70%;
+            margin-top: 40px; /* Adjusted margin */
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        nav {
+                background-color:#001021;
+                overflow: hidden;
+                height: 79px;
+         }
+
+            .navbar-img{
+
+            width: 130px; /* Adjust the size as needed */
+            height: 130px; /* Ensure a square aspect ratio for a circular look */
+            border-radius: 50%; /* Make it circular */
+            margin-right: 20px; /* Adjust the margin as needed */
+            margin-left: 0px;
+            margin-top: -25px;
+        }
+
+        button:hover {
+            background-color: #003366; /* Darker Oxford Blue */
+        }
+
+        .txt{
+            font-size: 22px;
+        }
+
+        a {
+            color: #001021; /* Oxford Blue */
+            text-decoration:underline;
+            display: block;
+            margin-top: 10px;
+            font-size: 19px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="navbar-img" src="/static/logo.png" width="50%">
+    </nav>
+    <div class="flash">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <span class="{{category}}">{{ message }}</span><br>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="container">
+    <form action="/updateplstname/{{plit}}" method="post">
+        <h1>Edit Playlist</h1>
+        <input class="txt" type="text" name="plstname" required placeholder="Enter New Name">
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+</body>
+</html>

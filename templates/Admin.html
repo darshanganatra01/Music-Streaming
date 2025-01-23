@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title>Music Streaming App - Administrator Login</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #signin-form {
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        form {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+
+        input[type="password"] {
+            -webkit-text-security: disc; /* Safari */
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e75c9;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .nodata{
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+        }
+
+        .notadmin{
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+
+        .flash {
+            animation: fadeOut 4s forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="signin-form">
+        <div class="flash">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        {%if category=="nodata"%}
+                    <ul>
+                    <span class="{{category}}">{{ message }}</span>
+                    </ul> <br>
+        {%endif%}
+        {% endfor %}
+        {% endif %}
+        {%endwith%}
+    </div>
+        <h2>Administrator Login</h2>
+        <form action="/admin" method="post">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br>
+        <div class="flash">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            {%if category=="notadmin"%}
+                    <ul>
+                    <span class="{{category}}">{{ message }}</span>
+                    </ul> <br>
+            {%endif%}
+            {% endfor %}
+            {% endif %}
+            {%endwith%}
+        </div>
+            
+            <div style="text-align: center;">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+        <p>Don't Have Admin Access? <u><a href="/">Login Here</a></u></p>
+    </div>
+</body>
+
+</html>

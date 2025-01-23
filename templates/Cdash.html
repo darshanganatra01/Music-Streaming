@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         body {
+            margin: 0;
+            padding: 0;
+        }
+        .creator{
+            animation: fadeOut 4s forwards; /* 5s animation duration */
+        }
+        
+        .addsong{
+            animation: fadeOut 4s forwards; /* 5s animation duration */
+        }
+        
+        span.hello{
+            float: left;
+            margin-right: 20px;
+            margin-top: 25px;
+            color: #fff;
+            margin-left:12px;
+            font-size: 19px;
+        }
+        
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+        nav {
+            background-color:#001021;
+            overflow: hidden;
+            height: 79px;
+        }
+    
+        nav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 16px;
+            text-decoration: none;
+        }
+    
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    
+        .navbar-right {
+            float: right;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+        
+        div.flash{
+            animation: fadeOut 4s forwards; /* 5s animation duration */
+            font-size:larger;
+            font-weight:bold;
+            margin-top:45px;
+            margin-left:40%;
+            text-decoration: underline;
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+
+        .box {
+            display:inline-block;
+            text-align: center;
+            padding: 20px;
+            margin:20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-top:28px;
+            margin-left:440px;
+        }
+
+        .box1 {
+            display:inline-block;
+            text-align: center;
+            padding: 20px;
+            margin:20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-top:28px;
+            margin-left:140px;
+        }
+
+        
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box h3 {
+            margin-bottom: 10px;
+            color:black;
+        }
+
+        .box p,.box1 p {
+            color: #777;
+        }
+
+        .view-all-btn {
+            background-color: #444554;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            margin-bottom:20px;
+        }
+
+
+
+        .view-all-btn:hover {
+            background-color: #1f77c0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        h1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color:#0C6291; /* Set the background color to green */
+        color: #f9f6f6; /* Set the font color to black */
+        padding: 15px; /* Added padding for better aesthetics */
+        text-align: center; /* Center the text */
+        margin:0;
+        }
+
+        .view-all-link  {
+            padding: 10px 20px; /* Adjust the padding to change the size */
+        margin-top: 10px; /* Add some top margin for spacing */
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        background-color: #444554 ;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block; /* Added display property */
+        height: 30px; /* Set a specific height */
+        line-height: 30px; /* Center the text vertically */
+    }
+
+        .view-all-link:hover {
+            background-color: #1f77c0;
+        }
+
+        p.num{
+            margin:20px;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        div.up{
+            margin-bottom:30px;
+        }
+
+        .section-container {
+        background-color: whitesmoke; /* Match the navbar color */
+        padding: 20px; /* Added padding for better aesthetics */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Changed from space-around to space-between */
+        margin:0; /* Added margin for better separation */
+    }
+
+    .section-item {
+        text-align: center;
+        margin: 30px;
+        padding: 10px;
+        border: 2px solid #001021;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    .section-item:hover {
+        transform: scale(1.05);
+    }
+
+    .section-link {
+        padding: 10px 20px; /* Adjust the padding to change the size */
+        margin-top: 10px; /* Add some top margin for spacing */
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        background-color: #007bff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block; /* Added display property */
+        height: 30px; /* Set a specific height */
+        line-height: 30px; /* Center the text vertically */
+    }
+
+    .section-link:hover {
+        background-color: #0056b3;
+    }
+
+    h1.section-title {
+        background-color: #0C6291; /* Set the background color to green */
+        color: #f9f6f6; /* Set the font color to black */
+        padding: 15px; /* Added padding for better aesthetics */
+        text-align: center; /* Center the text */
+        margin: 0;
+    }
+
+    .song-item {
+            background-color: whitesmoke;
+            text-align: center;
+            margin:30px;
+            padding: 10px;
+            border: 2px solid #001021;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+    
+        .song-item:hover {
+            transform: scale(1.05);
+        }
+    
+        .song-image {
+            width:100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    
+        .song-name {
+            margin-top: 10px;
+            font-weight: bold;
+            color:black; /* Set the text color for song names */
+        }
+
+        
+        table {
+            justify-content: center;
+            width: 80%;
+            margin-top: 40px; /* Adjust as needed */
+            margin-bottom: 20px; /* Adjust as needed */
+            margin-left: 9%;
+            box-shadow: 0 0 10px #000004;; /* Add a subtle shadow */
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        th,td {
+            background-color:#000004;
+            color: #fff;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Alternate row color */
+        }
+        
+        a {
+            text-decoration: none;
+            color: #007bff; /* Link color */
+            font-weight: bold;
+        }
+
+        .box1:hover {
+            transform: translateY(-5px);
+        }
+
+        
+
+
+    </style>
+    <title>Creator</title>
+</head>
+<body>
+
+<nav>
+    <span class="hello" >Hello {{user.firstname}}!!</span>
+    
+    <div class="navbar-right">
+        <a href="/upload">Upload a Song</a>
+        <a href="/udash">Home</a>
+        <a href="/logoutuser">Logout</a>
+    </div>
+
+    <div class="flash">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                                <span class="{{category}}">{{ message }}</span>
+                             <br>
+                    {% endfor %}
+                {% endif %}
+                {%endwith%}
+        </div>
+    
+</nav>
+
+<h1>Your Content</h1>
+
+<div class="box">
+    <h3>Total Number of Songs<br></h3>
+    <div class="up">
+    <p class="num">{{scount}}</p>
+    </div>
+    <a href="/crtsongs" class="view-all-btn">Explore</a>
+</div>
+
+<div class="box1">
+    <div class="up">
+    <h3>Total Number of Albums<br></h3>
+    <p class="num">{{alcount}}</p>
+    </div>
+    <a href="/viewalbums" class="view-all-btn">Explore</a>
+</div>
+<br>
+<br>
+    <h1 class="section-title"> Your Albums </h1>
+    <div class="section-container">
+        {%set limit=4%}
+        {% for album in alb %}
+        {%if loop.index <= limit %}
+            <div class="section-item">
+                <a class="n" href="/albmsongs/{{ album.album_id }}">
+                    <img class="song-image" src="/static/playlist.png" width="100%" alt="album image">
+                    <div class="song-name">
+                        <span class="plain-text">{{ album.album_name }}</span>
+                    </div>
+                </a>
+            </div>
+        {%endif%}
+        {% endfor %}
+        <a href="/viewalbums" class="view-all-link">View All</a>
+    </div>
+        
+
+    {%if l==[]%}
+    <h1 class="section-title">Your Songs Hasnt been reviewed yet</h1>
+    {%else%}
+    <h1 class="section-title">Your Popular Songs</h1>
+    <table border="2">
+        <tr>
+            <th> Song.id </th>
+            <th> Song.name </th>
+            <th> Song.Genre </th>
+            <th> Average Review </th>
+            <th> Play </th>
+        </tr>
+        {%for i in l%}
+        {%if loop.index<=limit%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.s_name}}</td>
+            <td>{{i.s_singer}}</td>
+            {%for j in data%}
+            {%if j[0]==i.s_id%}
+            <td>{{j[1]}} </td>
+            {%endif%}
+            {%endfor%}
+            <td><a href="/creatorplay/{{i.s_id}}"> Play </a></td>
+        </tr>
+        {%endif%}
+        {%endfor%}
+    </table>
+    {%endif%}
+
+    <br>
+    <hr>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title>Album Songs</title>
+    <style>
+        nav {
+                background-color:#001021;
+                overflow: hidden;
+                height: 79px;
+                margin:0;
+            }
+        
+            nav a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 18px 16px;
+                text-decoration: none;
+            }
+        
+            nav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+        
+    
+        .navbar-right {
+                float: right;
+                margin-right: 20px;
+                margin-top: 10px;
+            }
+    
+        h1{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            text-align:center;
+            margin-top: 70px;
+            font-size:50px;
+        }
+
+        table {
+            justify-content: center;
+            width: 80%;
+            margin-top: 90px; /* Adjust as needed */
+            margin-bottom: 20px; /* Adjust as needed */
+            margin-left: 9%;
+            box-shadow: 0 0 10px #000004;; /* Add a subtle shadow */
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        th,td {
+            background-color:#000004;
+            color: #fff;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Alternate row color */
+        }
+        
+        a {
+            text-decoration: none;
+            color: #007bff; /* Link color */
+            font-weight: bold;
+        }
+        
+        a:hover {
+            color: #0056b3; /* Link color on hover */
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            height: 100vh;
+            background-color:#0C6291; /* Set a background color */
+        }
+        
+        
+        .navbar-img{
+
+            width: 130px; /* Adjust the size as needed */
+            height: 130px; /* Ensure a square aspect ratio for a circular look */
+            border-radius: 50%; /* Make it circular */
+            margin-right: 20px; /* Adjust the margin as needed */
+            margin-left: 0px;
+            margin-top: -25px;
+            }
+
+</style>
+</head>
+<body>
+
+<nav>
+<img class="navbar-img" src="/static/logo.png" width="50%">
+        <div class="navbar-right">
+            <a href="/udash">Home</a>
+            <a href="/topsongs">Top Songs</a>
+            <a href="/creator">Creator Dashboard</a>
+            <a href="/logoutuser">Logout</a>
+        </div>
+    </nav>
+    {%if data==[]%}
+    <h1>No Content Available</h1>
+    {%else%}
+    <u><h1>Songs</h1></u>
+    <table border="2">
+        <tr>
+            <th> Song.id </th>
+            <th> Song.name </th>
+            <th> Release Date </th>
+            <th> Genre </th>
+            <th> Play </th>
+        </tr>
+        {%for i in data%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.s_name}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.s_genre}}</td>
+            <td><a href="/play/{{i.s_id}}"> Play </a></td>
+        </tr>
+        {%endfor%}
+    </table>
+    {%endif%}
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title> Admin </title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            height: 100vh;
+         /* Set a background color */
+        }
+        
+
+        /* Styles for the navigation bar */
+
+        nav {
+            background-color:#001021;
+            overflow: hidden;
+            height: 79px;
+        }
+    
+        nav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 16px;
+            text-decoration: none;
+        }
+    
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    
+        .navbar-right {
+            float: right;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+    
+        /* Styles for the search bar and "Top Songs" link */
+        
+        #search-bar-container,
+        #top-songs {
+            float: left;
+            margin-top: 18px;
+            margin-left: 27%;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+        }
+    
+        #search-bar-container input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    
+        #search-bar-container button,
+        #top-songs a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color:#444554; /* Changed the color to green */
+            color: #fff;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    
+
+        .box {
+            display:inline-block;
+            text-align: center;
+            padding: 20px;
+            margin:20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-top:60px;
+            margin-left:35px;
+        }
+
+
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .box p {
+            color: #777;
+        }
+
+        .view-all-btn {
+            background-color: #444554;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .view-all-btn:hover {
+            background-color: #1f77c0;
+        }
+
+        a{
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color:#0C6291; /* Set the background color to green */
+        color: #f9f6f6; /* Set the font color to black */
+        padding: 15px; /* Added padding for better aesthetics */
+        text-align: center; /* Center the text */
+        margin:0;
+        }
+
+        div.data{
+            display:inline;
+            margin-left: 70px;
+        }
+
+        h1.data{
+            margin-top:50px;
+        }
+
+
+        .navbar-img{
+
+            width: 130px; /* Adjust the size as needed */
+            height: 130px; /* Ensure a square aspect ratio for a circular look */
+            border-radius: 50%; /* Make it circular */
+            margin-right: 20px; /* Adjust the margin as needed */
+            margin-left: 0px;
+            margin-top: -25px;
+        }
+
+
+        </style>
+</head>
+<body>
+
+    <nav>
+        <img class="navbar-img" src="/static/logo.png" width="50%">
+        <div id="search-bar-container">
+            <form action="/adash" method="post" >
+                <input type="text" name="search" placeholder="Search" required>
+                <button type="submit" name="search"> Search</button>
+            </form>
+        </div>
+        
+        <div class="navbar-right">
+            <a href="/admin">Logout</a>
+        </div>
+    </nav>
+
+    <h1>Overall Data</h1>
+        <!-- Box 1 -->
+        <div class="box">
+            <h3>Total Number of Active Users<br></h3>
+            <p>{{cl}}</p>
+            <a href="/adminusers" class="view-all-btn">View all</a>
+        </div>
+    
+        <!-- Box 2 -->
+        <div class="box">
+            <h3>Total Number of Songs<br></h3>
+            <p>{{al}}</p>
+            <a href="/adminsongs" class="view-all-btn">View all</a>
+        </div>
+    
+        <!-- Box 3 -->
+        <div class="box">
+            <h3>Total Number of Albums<br></h3>
+            <p>{{bl}}</p>
+            <a href="/adminalbums" class="view-all-btn">View all</a>
+        </div>
+    
+        <!-- Box 4 -->
+        <div class="box">
+            <h3>Total Number of Creators<br></h3>
+            <p>{{crcount}}</p>
+            <a href="/admincreators" class="view-all-btn">View all</a>
+        </div>
+    
+        <!-- Box 5 -->
+        <div class="box">
+            <h3>Total Number of Genres</h3>
+            <p>{{gl}}</p>
+            <a href="/admingenres" class="view-all-btn">View all</a>
+        </div>
+
+        {%if d%}
+        <h1 class="data">Statistics</h1>
+        <br>
+        <br>
+        <div class="data">
+            <img src="/static/plt.png">
+        </div>
+        
+        <div class="data">
+            <img src="/static/plt2.png">
+        </div>
+        {%else%}
+        <h1 class="data">No Songs been Uploaded</h1>
+        {%endif%}
+</body>
+</html>
+

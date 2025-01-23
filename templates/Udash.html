@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title>User</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Styles for the "Go to Creator Dashboard" button */
+        a.bekaar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50; /* Changed the color to green */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+    
+        a:hover {
+            background-color: #454955; /* Darker green on hover */
+        }
+    
+        /* Styles for the navigation bar */
+        nav {
+            background-color:#001021;
+            overflow: hidden;
+            height: 81px;
+        }
+    
+        nav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 16px;
+            text-decoration: none;
+        }
+    
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    
+        .navbar-right {
+            float: right;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+    
+        /* Styles for the search bar and "Top Songs" link */
+        #search-bar-container,
+        #top-songs {
+            float: left;
+            margin-top: 18px;
+            margin-left: 27%;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+        }
+    
+        #search-bar-container input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    
+        #search-bar-container button,
+        #top-songs a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color:#444554; /* Changed the color to green */
+            color: #fff;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    
+        #search-bar-container button:hover,
+        #top-songs a:hover {
+            background-color:  #454955 ;; /* Darker green on hover */
+        }
+    
+        span.hello {
+            float: left;
+        margin-right: 20px;
+        margin-top: 25px;
+        color: #fff;
+        margin-left:12px;
+        font-size: 19px;
+        }
+    
+        /* Styles for the "Latest Songs" section */
+        .latest-songs-container {
+            background-color:whitesmoke; /* Match the navbar color */
+            padding: 20px; /* Added padding for better aesthetics */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Changed from space-around to space-between */
+            margin:0;
+        }
+    
+        .song-item {
+            background-color: whitesmoke;
+            text-align: center;
+            margin:30px;
+            padding: 10px;
+            border: 2px solid #001021;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+    
+        .song-item:hover {
+            transform: scale(1.05);
+        }
+    
+        .song-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    
+        .song-name {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #eee8e8; /* Set the text color for song names */
+        }
+    
+        .view-all-link  {
+            padding: 10px 20px; /* Adjust the padding to change the size */
+        margin-top: 10px; /* Add some top margin for spacing */
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        background-color: #444554 ;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block; /* Added display property */
+        height: 30px; /* Set a specific height */
+        line-height: 30px; /* Center the text vertically */
+    }
+
+    
+        h1 {
+        background-color:#0C6291; /* Set the background color to green */
+        color: #f9f6f6; /* Set the font color to black */
+        padding: 15px; /* Added padding for better aesthetics */
+        text-align: center; /* Center the text */
+        margin:0;
+    }
+
+    .section-container {
+        background-color: whitesmoke; /* Match the navbar color */
+        padding: 20px; /* Added padding for better aesthetics */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Changed from space-around to space-between */
+        margin:0; /* Added margin for better separation */
+    }
+
+    .section-item {
+        background-color: whitesmoke;
+            text-align: center;
+            margin:30px;
+            padding: 10px;
+            border: 2px solid #001021;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+    }
+
+    .section-item:hover {
+        transform: scale(1.05);
+    }
+
+    .section-link {
+        padding: 10px 20px; /* Adjust the padding to change the size */
+        margin-top: 10px; /* Add some top margin for spacing */
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        background-color:  #444554;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block; /* Added display property */
+        height: 30px; /* Set a specific height */
+        line-height: 30px; /* Center the text vertically */
+    }
+
+    .section-link:hover {
+        background-color: #0056b3;
+    }
+
+    h1.section-title {
+        background-color: #0C6291; /* Set the background color to green */
+        color: #f9f6f6; /* Set the font color to black */
+        padding: 15px; /* Added padding for better aesthetics */
+        text-align: center; /* Center the text */
+        margin: 0;
+    }
+    h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+    a.n{
+        text-decoration: none;
+    }
+
+    span.plain-text{
+        color:#001021
+    }
+
+    a{
+        font-weight: bold;
+    }
+
+    </style>
+    
+    <!-- Your HTML content remains unchanged -->
+    
+    
+    
+    
+       
+</head>
+<body>
+    <nav>
+        <span class="hello" >Hello {{user.firstname}}!!</span>
+        <div id="search-bar-container">
+            <form action="/udash" method="post" >
+                <input type="text" name="search" placeholder="Search" required>
+                <button type="submit" name="search"> Search</button>
+            </form>
+        </div>
+        
+        <div class="navbar-right">
+            <a href="/topsongs">Top Songs</a>
+            <a href="/creator">Creator Dashboard</a>
+            <a href="/logoutuser">Logout</a>
+        </div>
+    </nav>
+
+    <h1>Latest Songs</h1>
+<div class="latest-songs-container">
+    {% set limit = 4 %}
+    {% for song in latestsng %}
+        {% if loop.index <= limit %}
+            <div class="song-item">
+                <a class="n" href="/play/{{ song.s_id }}">
+                    <img class="song-image" src="/static/7030139_volume_headphone_music_ui basic_sound_icon.png" alt="music image">
+                    <div class="song-name">
+                        <span class="plain-text">{{ song.s_name }}</span>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <a href="/viewsongs" class="view-all-link">View All</a>
+
+    
+</div>
+<h1 class="section-title">Genres</h1>
+<div class="section-container">
+    {%for i in latestsng  | groupby('s_genre')%}
+    {%if loop.index <= limit %}
+        <div class="section-item">
+            <a class="n" href="/genresongs/{{i.grouper }}">
+                <img class="song-image" src="/static/7030139_volume_headphone_music_ui basic_sound_icon.png" alt="genre image">
+                <div class="song-name">
+                    <span class="plain-text">{{ i.grouper }}</span>
+                </div>
+            </a>
+        </div>
+    {%endif%}
+    {% endfor %}
+    <a href="/viewgenres" class="section-link">View All</a>
+</div>
+
+
+<h1 class="section-title">Playlists</h1>
+<div class="section-container">
+    {% for playlist in plist %}
+    {%if loop.index <= limit %}
+        <div class="section-item">
+            <a class="n" href="/plistsongs/{{ playlist.playlist_id }}">
+                <img class="song-image" src="/static/playlist.png" alt="playlist image">
+                <div class="song-name">
+                    <span class="plain-text">{{ playlist.playlist_name }}</span>
+                </div>
+            </a>
+        </div>
+    {%endif%}
+    {% endfor %}
+    <a href="/viewplaylist" class="section-link">View All</a>
+</div>
+
+
+<h1 class="section-title">Albums</h1>
+<div class="section-container">
+    {% for album in albs %}
+    {%if loop.index <= limit %}
+        <div class="section-item">
+            <a class="n" href="/Suserviewalb/{{ album.album_id }}">
+                <img class="song-image" src="/static/playlist.png" alt="album image">
+                <div class="song-name">
+                    <span class="plain-text">{{ album.album_name }}</span>
+                </div>
+            </a>
+        </div>
+    {%endif%}
+    {% endfor %}
+    <a href="/userviewalb" class="section-link">View All</a>
+</div>
+    
+</body>
+</html>

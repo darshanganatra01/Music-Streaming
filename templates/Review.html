@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title>Review Song</title>
+    <style>
+        body {
+            background-color: #0C6291;
+            color: #333;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .black-box {
+            margin:auto;
+            padding: 35px;
+            border:solid;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; 
+            width:450px;
+            border-color:black;
+            margin-top: 90px;
+
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 60px;
+            background-color: #444554;
+            color:white;
+            margin-top: 0;
+            margin:0;
+            padding:14px 10px;
+        }
+        
+
+        form {
+            width: 300px;
+            margin: 0 auto; /* Center the form */
+            text-align: center;
+
+        }
+
+        .radio-box {
+            margin-top: 50px;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 13px 25px;
+            background-color: #444554;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        nav {
+                background-color:#001021;
+                overflow: hidden;
+                height: 79px;
+         }
+
+            .navbar-img{
+
+            width: 130px; /* Adjust the size as needed */
+            height: 130px; /* Ensure a square aspect ratio for a circular look */
+            border-radius: 50%; /* Make it circular */
+            margin-right: 20px; /* Adjust the margin as needed */
+            margin-left: 0px;
+            margin-top: -25px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img class="navbar-img" src="/static/logo.png" width="50%">
+    </nav>
+
+    <div class="black-box">
+        <h1>Review This Song</h1>
+        <form action="/review/{{ song.s_id }}/{{ song.singer_id }}" label="Review" method="POST">
+            <div class="radio-box">
+                <input type="radio" name="rev" value="1" {% if rev==1.0%} checked{% endif %}> 1 : Did not meet expectations:(<br>
+                <input type="radio" name="rev" value="2" {% if rev==2.0%} checked{% endif %}> 2 : Not My Type!<br>
+                <input type="radio" name="rev" value="3" {% if rev==3.0%} checked{% endif %}> 3 : Okayish!<br>
+                <input type="radio" name="rev" value="4" {% if rev==4.0%} checked{% endif %}> 4 : Vibe Toh Hai;)<br>
+                <input type="radio" name="rev" value="5" {% if rev==5.0%} checked{% endif %}> 5 : Amazing!! <br>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
